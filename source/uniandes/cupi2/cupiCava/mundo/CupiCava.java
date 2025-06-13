@@ -158,7 +158,16 @@ public class CupiCava
    	 // TODO Parte2 PuntoR: Implemente el método según la documentación dada.
 	}
     
-    
+    /**
+     * Ordena ascendentemente la lista de vinos por lugar de origen usando el algoritmo de inserción. <br>
+     * <b>pre:</b> La lista de vinos está inicializada.<br>
+     * <b> post: </b>La lista de vinos está ordenada por lugar de origen (orden ascendente).
+     */
+    public void ordenarVinosPorLugarOrigen( )
+    {
+   	 // TODO Parte2 PuntoN: Implemente el método según la documentación dada.
+    }
+
     /**
      * Busca un vino utilizando una búsqueda binaria. <br>
      * <b>pre: </b> La lista de vinos está inicializada y se encuentra ordenada por nombre.
@@ -208,16 +217,8 @@ public class CupiCava
 
     
 
-    /**
-     * Ordena ascendentemente la lista de vinos por lugar de origen usando el algoritmo de inserción. <br>
-     * <b>pre:</b> La lista de vinos está inicializada.<br>
-     * <b> post: </b>La lista de vinos está ordenada por lugar de origen (orden ascendente).
-     */
-    public void ordenarVinosPorLugarOrigen( )
-    {
-   	 // TODO Parte2 PuntoN: Implemente el método según la documentación dada.
-   }
-
+    
+    
     // -----------------------------------------------------------------
     // Invariante
     // -----------------------------------------------------------------
