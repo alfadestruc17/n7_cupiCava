@@ -238,7 +238,7 @@ public class Vino
     public int compararPorNombre( Vino pVino )
     {
     	 // TODO Parte2 PuntoA: Implemente el método según la documentación dada.
-    	
+    	return nombre.compareTo(pVino.darNombre());
     }
 
     /**
@@ -251,6 +251,7 @@ public class Vino
     public int compararPorPresentacion( Vino pVino )
     {
    	 // TODO Parte2 PuntoB: Implemente el método según la documentación dada.
+    	return presentacion.compareTo(pVino.darPresentacion());
    }
 
     /**
@@ -263,7 +264,13 @@ public class Vino
     public int compararPorAnhoElaboracion( Vino pVino )
     {
    	 // TODO Parte2 PuntoC: Implemente el método según la documentación dada.
-   }
+    	if (anhoElaboracion < pVino.darAnhoElaboracion())
+			return 1;
+		else if (anhoElaboracion > pVino.darAnhoElaboracion())
+			return -1;
+		else
+			return 0;
+    }
 
     /**
      * Compara dos vinos según el contenido en azúcar. <br>
@@ -275,7 +282,13 @@ public class Vino
     public int compararPorContenidoAzucar( Vino pVino )
     {
    	 // TODO Parte2 PuntoD: Implemente el método según la documentación dada.
-   }
+    	if (contenidoAzucar < pVino.darContenidoAzucar())
+    		return 1;
+    	else if (contenidoAzucar > pVino.darContenidoAzucar())
+    		return -1;
+		else
+			return 0;
+    }
 
     /**
      * Compara dos vinos según el tipo de vino. <br>
@@ -287,7 +300,8 @@ public class Vino
     public int compararPorTipo( Vino pVino )
     {
    	 // TODO Parte2 PuntoE: Implemente el método según la documentación dada.
-   }
+    	return tipo.compareTo(pVino.darTipo());
+    }
 
     /**
      * Compara dos vinos según el color. <br>
@@ -299,8 +313,9 @@ public class Vino
     public int compararPorColor( Vino pVino )
     {
    	 // TODO Parte2 PuntoF: Implemente el método según la documentación dada.
+    	return color.compareTo(pVino.darColor());
     }
-
+    
     /**
      * Compara dos vinos según el lugar de origen. <br>
      * @param pVino Vino contra el cual se está comparando. pVino !=null.
@@ -311,7 +326,8 @@ public class Vino
     public int compararPorLugarOrigen( Vino pVino )
     {
    	 // TODO Parte2 PuntoG: Implemente el método según la documentación dada.
-   }
+    	return lugarOrigen.compareTo(pVino.darLugarOrigen());
+    }
 
     /**
      * Retorna una cadena con el nombre del vino.
