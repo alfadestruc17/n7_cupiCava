@@ -107,7 +107,27 @@ public class CupiCava
 
         return agregada;
     }
+    
+    /**
+     * Ordena ascendentemente la lista de vinos por nombre usando el algoritmo de burbuja. <br>
+     * <b>pre:</b> La lista de vinos está inicializada. <br>
+     * <b>post:</b> La lista de vinos está ordenada por nombre (orden ascendente).
+     */
+    public void ordenarVinosPorNombre( )
+    {
+   	 // TODO Parte2 PuntoL: Implemente el método según la documentación dada.
+    }
 
+    /**
+     * Ordena descendentemente la lista de vinos por año de elaboración usando el algoritmo de selección. <br>
+     * <b>pre:</b> La lista de vinos está inicializada. <br>
+     * <b>post:</b> La lista de vinos está ordenada por año de elaboración (orden descendente).
+     */
+    public void ordenarVinosPorAnhoElaboracion( )
+    {
+   	 // TODO Parte2 PuntoM: Implemente el método según la documentación dada.
+    }
+    
     /**
      * Busca un vino utilizando una búsqueda binaria. <br>
      * <b>pre: </b> La lista de vinos está inicializada y se encuentra ordenada por nombre.
@@ -155,25 +175,7 @@ public class CupiCava
 
     
 
-    /**
-     * Ordena ascendentemente la lista de vinos por nombre usando el algoritmo de burbuja. <br>
-     * <b>pre:</b> La lista de vinos está inicializada. <br>
-     * <b>post:</b> La lista de vinos está ordenada por nombre (orden ascendente).
-     */
-    public void ordenarVinosPorNombre( )
-    {
-   	 // TODO Parte2 PuntoL: Implemente el método según la documentación dada.
-   }
-
-    /**
-     * Ordena descendentemente la lista de vinos por año de elaboración usando el algoritmo de selección. <br>
-     * <b>pre:</b> La lista de vinos está inicializada. <br>
-     * <b>post:</b> La lista de vinos está ordenada por año de elaboración (orden descendente).
-     */
-    public void ordenarVinosPorAnhoElaboracion( )
-    {
-   	 // TODO Parte2 PuntoM: Implemente el método según la documentación dada.
-   }
+    
 
     /**
      * Ordena ascendentemente la lista de vinos por lugar de origen usando el algoritmo de inserción. <br>
