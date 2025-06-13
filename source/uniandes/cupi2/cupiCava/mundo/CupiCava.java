@@ -137,6 +137,21 @@ public class CupiCava
 	}
     
     /**
+     * 
+     */
+    public void ordenarVinosPorContenidoAzucar()
+	{
+   	 // TODO Parte2 PuntoP: Implemente el método según la documentación dada.
+	}
+    
+    /**
+     * 
+     */
+    public void ordenarVinosPorTipo() {
+   	 // TODO Parte2 PuntoQ: Implemente el método según la documentación dada.
+    }
+    
+    /**
      * Busca un vino utilizando una búsqueda binaria. <br>
      * <b>pre: </b> La lista de vinos está inicializada y se encuentra ordenada por nombre.
      * @param pNombre Nombre del vino que se va a buscar. pNombre != null && pNombre != "".
