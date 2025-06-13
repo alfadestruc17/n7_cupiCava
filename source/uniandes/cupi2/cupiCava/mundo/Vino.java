@@ -20,7 +20,10 @@ public class Vino
     // -------------------------------------------------------------
     // Constantes
     // -------------------------------------------------------------
-
+	/**
+	 * 
+	 */
+	
     /**
      * Constante que representa la presentación barril.
      */
@@ -143,7 +146,8 @@ public class Vino
         color = pColor;
         lugarOrigen = pLugarOrigen;
         imagen = pImagen;
-
+        
+        
     }
 
     // -------------------------------------------------------------
@@ -203,6 +207,8 @@ public class Vino
     {
         return color;
     }
+    
+    
 
     /**
      * Retorna el lugar de origen del vino.
@@ -232,6 +238,7 @@ public class Vino
     public int compararPorNombre( Vino pVino )
     {
     	 // TODO Parte2 PuntoA: Implemente el método según la documentación dada.
+    	
     }
 
     /**
@@ -318,6 +325,16 @@ public class Vino
     // -----------------------------------------------------------------
     // Invariante
     // -----------------------------------------------------------------
+    
+    public int verficarInvariante( )
+	{
+		int resultado = 0;
+		if (nombre == null || nombre.equals("") || presentacion == null || presentacion.equals("") || anhoElaboracion <= 0 || contenidoAzucar < 0 || tipo == null || tipo.equals("") || color == null || color.equals("") || lugarOrigen == null || lugarOrigen.equals("") || imagen == null || imagen.equals(""))
+		{
+			resultado = -1;
+		}
+		return resultado;
+	}
 
     // TODO Parte1 PuntoB: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
 }
