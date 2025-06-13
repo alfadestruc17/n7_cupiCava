@@ -213,15 +213,30 @@ public class CupiCava
    	 // TODO Parte2 PuntoK: Implemente el método según la documentación dada.
    }
 
-    
-
-    
-
-    
-    
     // -----------------------------------------------------------------
     // Invariante
     // -----------------------------------------------------------------
+    
+   /**
+    *  
+    */
+    private void verificarInvariante( )
+	{
+		// TODO Parte1 PuntoD: Implemente el método según la documentación dada.
+		// Verifique que la lista de vinos no sea nula y que no tenga elementos nulos.
+		// Verifique que la invariante de cada vino sea verdadera.
+	}
+    
+    /**
+     * 
+     */
+    private boolean buscarVinosConNombreRepetido()
+	{
+   	 // TODO Parte2 PuntoG: Implemente el método según la documentación dada.
+   	 // Retorna true si existe un vino con el nombre dado, false de lo contrario.
+	}
+    
+    
 
     // TODO Parte1 PuntoD: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
 
