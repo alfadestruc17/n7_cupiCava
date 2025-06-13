@@ -77,6 +77,36 @@ public class CupiCava
 
         return buscado;
     }
+    
+    /**
+     * Agrega un nuevo vino a la cava si no existe actualmente un vino en la cava con el mismo nombre.<br>
+     * <b>pre:</b> La lista de vinos está inicializada.<br>
+     * <b>post:</b> Se agregó un nuevo vino a la lista de vinos.<br>
+     * @param pNombre Nombre del vino. pNombre != null && pNombre != "".
+     * @param pPresentacion Presentación del vino. pPresentacion != null && pPresentacion != "" && (pPresentacion == BOTELLA || pPresentacion == BARRIL).
+     * @param pAnhoElaboracion Año de elaboración del vino. pAnhoElaboracion > 0.
+     * @param pContenidoAzucar Contenido en azúcar del vino. pContenidoAzucar >= 0
+     * @param pTipo Tipo de vino de acuerdo a su contenido en azúcar. pTipo != null && pTipo != "" && (pTipo == SECO || pTipo == ABOCADO || pTipo == SEMI_SECO || pTipo ==
+     *        SEMI_DULCE || pTipo == DULCE).
+     * @param pColor Color del vino. pColor != null && pColor != "" && (pColor == TINTO || pColor == ROSADO || pColor == BLANCO).
+     * @param pLugarOrigen Lugar de origen del vino. lugarElaboracion != null y lugarElaboracion != "".
+     * @param pImagen Imagen del vino. pImagen != null && pImagen != "".
+     * @return True si el vino es agregado, false de lo contrario.
+     */
+    public boolean agregarVino( String pNombre, String pPresentacion, int pAnhoElaboracion, double pContenidoAzucar, String pTipo, String pColor, String pLugarOrigen, String pImagen )
+    {
+        Vino buscado = buscarVino( pNombre );
+        boolean agregada = false;
+
+        if( buscado == null )
+        {
+            Vino vino = new Vino( pNombre, pPresentacion, pAnhoElaboracion, pContenidoAzucar, pTipo, pColor, pLugarOrigen, pImagen );
+            vinos.add( vino );
+            agregada = true;
+        }
+
+        return agregada;
+    }
 
     /**
      * Busca un vino utilizando una búsqueda binaria. <br>
@@ -123,35 +153,7 @@ public class CupiCava
    	 // TODO Parte2 PuntoK: Implemente el método según la documentación dada.
    }
 
-    /**
-     * Agrega un nuevo vino a la cava si no existe actualmente un vino en la cava con el mismo nombre.<br>
-     * <b>pre:</b> La lista de vinos está inicializada.<br>
-     * <b>post:</b> Se agregó un nuevo vino a la lista de vinos.<br>
-     * @param pNombre Nombre del vino. pNombre != null && pNombre != "".
-     * @param pPresentacion Presentación del vino. pPresentacion != null && pPresentacion != "" && (pPresentacion == BOTELLA || pPresentacion == BARRIL).
-     * @param pAnhoElaboracion Año de elaboración del vino. pAnhoElaboracion > 0.
-     * @param pContenidoAzucar Contenido en azúcar del vino. pContenidoAzucar >= 0
-     * @param pTipo Tipo de vino de acuerdo a su contenido en azúcar. pTipo != null && pTipo != "" && (pTipo == SECO || pTipo == ABOCADO || pTipo == SEMI_SECO || pTipo ==
-     *        SEMI_DULCE || pTipo == DULCE).
-     * @param pColor Color del vino. pColor != null && pColor != "" && (pColor == TINTO || pColor == ROSADO || pColor == BLANCO).
-     * @param pLugarOrigen Lugar de origen del vino. lugarElaboracion != null y lugarElaboracion != "".
-     * @param pImagen Imagen del vino. pImagen != null && pImagen != "".
-     * @return True si el vino es agregado, false de lo contrario.
-     */
-    public boolean agregarVino( String pNombre, String pPresentacion, int pAnhoElaboracion, double pContenidoAzucar, String pTipo, String pColor, String pLugarOrigen, String pImagen )
-    {
-        Vino buscado = buscarVino( pNombre );
-        boolean agregada = false;
-
-        if( buscado == null )
-        {
-            Vino vino = new Vino( pNombre, pPresentacion, pAnhoElaboracion, pContenidoAzucar, pTipo, pColor, pLugarOrigen, pImagen );
-            vinos.add( vino );
-            agregada = true;
-        }
-
-        return agregada;
-    }
+    
 
     /**
      * Ordena ascendentemente la lista de vinos por nombre usando el algoritmo de burbuja. <br>
