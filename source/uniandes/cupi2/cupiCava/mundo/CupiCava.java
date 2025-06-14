@@ -149,6 +149,11 @@ public class CupiCava
 			}
     	}
     
+    /**
+     * Ordena ascendentemente la lista de vinos por presentación usando el algoritmo de inserción. <br>
+     * <b>pre:</b> La lista de vinos está inicializada. <br>
+     * 
+     */
     public void ordenarVinosPorPresentacion() {
         for (int i = 1; i < vinos.size(); i++) {
             Vino actual = vinos.get(i);
@@ -161,6 +166,11 @@ public class CupiCava
         }
     }
 
+    /**
+	 * Ordena ascendentemente la lista de vinos por contenido en azúcar usando el algoritmo de burbuja. <br>
+	 * <b>pre:</b> La lista de vinos está inicializada. <br>
+	 * <b>post:</b> La lista de vinos está ordenada por contenido en azúcar (orden ascendente).
+	 */
     public void ordenarVinosPorContenidoAzucar() {
         for (int i = 0; i < vinos.size() - 1; i++) {
             for (int j = 0; j < vinos.size() - i - 1; j++) {
@@ -172,7 +182,12 @@ public class CupiCava
             }
         }
     }
-
+    
+    /**
+	 * Ordena ascendentemente la lista de vinos por tipo usando el algoritmo de selección. <br>
+	 * <b>pre:</b> La lista de vinos está inicializada. <br>
+	 * <b>post:</b> La lista de vinos está ordenada por tipo (orden ascendente).
+	 */
     public void ordenarVinosPorTipo() {
         for (int i = 0; i < vinos.size() - 1; i++) {
             int min = i;
@@ -186,7 +201,12 @@ public class CupiCava
             vinos.set(min, temp);
         }
     }
-
+    
+    /**
+	 * Ordena ascendentemente la lista de vinos por color usando el algoritmo de inserción. <br>
+	 * <b>pre:</b> La lista de vinos está inicializada. <br>
+	 * <b>post:</b> La lista de vinos está ordenada por color (orden ascendente).
+	 */
     public void ordenarVinosPorColor() {
         for (int i = 1; i < vinos.size(); i++) {
             Vino actual = vinos.get(i);
