@@ -218,36 +218,44 @@ public class CupiCava
     // -----------------------------------------------------------------
     // Invariante
     // -----------------------------------------------------------------
-    
-   /**
-    *  
-    */
-    private void verificarInvariante( )
-	{
-		
-    	if (vinos == null) {
-    		throw new RuntimeException("La lista de vinos no puede ser nula");
-    	}
-    	    
-    	// Verificar que no haya elementos nulos
-    	for (Vino vino : vinos) {
-    		if (vino == null) {
-    			throw new RuntimeException("No pueden existir vinos nulos");
-    	    }
-    	        // Verificar invariante de cada vino
-    	    if (vino.verficarInvariante() == -1) {
-    	    	throw new RuntimeException("La invariante del vino no se cumple");
-    	    }
-    	}
-	}
+
+    /**
+     * Verifica la invariante de la clase
+     * @throws RuntimeException si la invariante no se cumple
+     */
+    public void verificarInvariante() {
+        // Verificar que la lista no sea nula
+        if (vinos == null) {
+            throw new RuntimeException("La lista de vinos no puede ser nula");
+        }
+        
+        // Verificar que no haya elementos nulos
+        for (Vino vino : vinos) {
+            if (vino == null) {
+                throw new RuntimeException("No pueden existir vinos nulos");
+            }
+            // Verificar invariante de cada vino
+            if (vino.verficarInvariante() == -1) {
+                throw new RuntimeException("La invariante del vino no se cumple");
+            }
+        }
+    }
     
     /**
      * 
      */
-    private boolean buscarVinosConNombreRepetido()
+    public boolean buscarVinosConNombreRepetido()
 	{
    	 // TODO Parte2 PuntoG: Implemente el método según la documentación dada.
    	 // Retorna true si existe un vino con el nombre dado, false de lo contrario.
+    	for (int i = 0; i < vinos.size(); i++) {
+            for (int j = i + 1; j < vinos.size(); j++) {
+                if (vinos.get(i).darNombre().equals(vinos.get(j).darNombre())) {
+                    return true;
+                }
+            }
+        }
+        return false;
 	}
     
     
