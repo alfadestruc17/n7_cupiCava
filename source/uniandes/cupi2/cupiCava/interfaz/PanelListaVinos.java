@@ -90,9 +90,14 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
         setPreferredSize( new Dimension( 250, 0 ) );
 
         // TODO Parte3 PuntoB: Inicializar la lista de vinos y agregarle un ListSelectionListener
+        listaVinos = new JList<>( );
+        listaVinos.setSelectionMode( ListSelectionModel.SINGLE_SELECTION );
+        listaVinos.addListSelectionListener( this );
+        
         
 
      // TODO Parte3 PuntoC: Inicializar el scroll.
+        listaVinos = new JList<>( );
         scroll.setHorizontalScrollBarPolicy( JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
         scroll.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
         scroll.setBorder( new CompoundBorder( new EmptyBorder( 3, 3, 3, 3 ), new LineBorder( Color.BLACK, 1 ) ) );
