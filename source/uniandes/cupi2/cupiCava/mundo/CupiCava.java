@@ -116,6 +116,8 @@ public class CupiCava
     public void ordenarVinosPorNombre( )
     {
    	 // TODO Parte2 PuntoL: Implemente el método según la documentación dada.
+    	
+    	
     }
 
     /**
@@ -222,9 +224,21 @@ public class CupiCava
     */
     private void verificarInvariante( )
 	{
-		// TODO Parte1 PuntoD: Implemente el método según la documentación dada.
-		// Verifique que la lista de vinos no sea nula y que no tenga elementos nulos.
-		// Verifique que la invariante de cada vino sea verdadera.
+		
+    	if (vinos == null) {
+    		throw new RuntimeException("La lista de vinos no puede ser nula");
+    	}
+    	    
+    	// Verificar que no haya elementos nulos
+    	for (Vino vino : vinos) {
+    		if (vino == null) {
+    			throw new RuntimeException("No pueden existir vinos nulos");
+    	    }
+    	        // Verificar invariante de cada vino
+    	    if (vino.verficarInvariante() == -1) {
+    	    	throw new RuntimeException("La invariante del vino no se cumple");
+    	    }
+    	}
 	}
     
     /**
