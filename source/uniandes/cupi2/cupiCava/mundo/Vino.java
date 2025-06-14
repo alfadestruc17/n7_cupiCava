@@ -345,5 +345,4 @@ public class Vino
 		return resultado;
 	}
 
-    // TODO Parte1 PuntoB: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
 }

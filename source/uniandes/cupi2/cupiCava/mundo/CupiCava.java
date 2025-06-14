@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Clase que representa la Cupi-Cava. <br>
  * <b>inv: </b> <br>
- * TODO Parte1 PuntoC: Declare la invariante de la clase.
+ * 
  */
 public class CupiCava
 {
@@ -115,7 +115,6 @@ public class CupiCava
      */
     public void ordenarVinosPorNombre( )
     {
-   	 // TODO Parte2 PuntoL: Implemente el método según la documentación dada.
     	for (int i = 0; i < vinos.size() - 1; i++) {
 			for (int j = 0; j < vinos.size() - 1 - i; j++) {
 				if (vinos.get(j).darNombre().compareToIgnoreCase(vinos.get(j + 1).darNombre()) > 0) {
@@ -135,7 +134,6 @@ public class CupiCava
      */
     public void ordenarVinosPorAnhoElaboracion( )
     {
-   	 // TODO Parte2 PuntoM: Implemente el método según la documentación dada.
     	for (int i = 0; i < vinos.size() - 1; i++) {
     		int max = i;
     		for (int j = i + 1; j < vinos.size(); j++) {
@@ -226,7 +224,6 @@ public class CupiCava
      */
     public void ordenarVinosPorLugarOrigen( )
     {
-   	 // TODO Parte2 PuntoN: Implemente el método según la documentación dada.
     for (int i = 1; i < vinos.size(); i++) {
     	Vino vinoActual = vinos.get(i);
     	int j = i - 1;
@@ -246,7 +243,6 @@ public class CupiCava
      */
     public Vino buscarBinarioPorNombre( String pNombre )
     {
-   	 // TODO Parte2 PuntoH: Implemente el método según la documentación dada.
     			int inicio = 0;
 		int fin = vinos.size() - 1;
 		Vino encontrado = null;
@@ -276,7 +272,6 @@ public class CupiCava
      */
     public Vino buscarVinoMasDulce( )
     {
-   	 // TODO Parte2 PuntoI: Implemente el método según la documentación dada.
     	if (vinos.isEmpty()) {
 			return null;
 		}
@@ -298,7 +293,6 @@ public class CupiCava
      */
     public Vino buscarVinoMasSeco( )
     {
-   	 // TODO Parte2 PuntoJ: Implemente el método según la documentación dada.
     	if (vinos.isEmpty()) {
 			return null;
 		}
@@ -321,7 +315,6 @@ public class CupiCava
      */
     public ArrayList<Vino> buscarVinosDeTipo( String pTipo )
     {
-   	 // TODO Parte2 PuntoK: Implemente el método según la documentación dada.
     	ArrayList<Vino> vinosDeTipo = new ArrayList<Vino>( );
 		
 		for (Vino vino : vinos) {
@@ -364,7 +357,6 @@ public class CupiCava
      */
     public boolean buscarVinosConNombreRepetido()
 	{
-   	 // TODO Parte2 PuntoG: Implemente el método según la documentación dada.
    	 // Retorna true si existe un vino con el nombre dado, false de lo contrario.
     	for (int i = 0; i < vinos.size(); i++) {
             for (int j = i + 1; j < vinos.size(); j++) {
@@ -376,9 +368,6 @@ public class CupiCava
         return false;
 	}
     
-    
-
-    // TODO Parte1 PuntoD: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
 
     // -----------------------------------------------------------------
     // Puntos de Extensión
