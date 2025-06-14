@@ -61,6 +61,7 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
      * Lista de los vinos.
      */
     // TODO Parte3 PuntoA: Declare el atributo listaVinos de tipo JList.
+    private JList<String> listaVinos;
 
     /**
      * Panel con un scroll que contiene a listaVinos.
