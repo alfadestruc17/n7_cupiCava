@@ -116,8 +116,16 @@ public class CupiCava
     public void ordenarVinosPorNombre( )
     {
    	 // TODO Parte2 PuntoL: Implemente el método según la documentación dada.
-    	
-    	
+    	for (int i = 0; i < vinos.size() - 1; i++) {
+			for (int j = 0; j < vinos.size() - 1 - i; j++) {
+				if (vinos.get(j).darNombre().compareToIgnoreCase(vinos.get(j + 1).darNombre()) > 0) {
+					// Intercambiar los vinos
+					Vino temp = vinos.get(j);
+					vinos.set(j, vinos.get(j + 1));
+					vinos.set(j + 1, temp);
+				}
+			}
+		}
     }
 
     /**
@@ -209,6 +217,17 @@ public class CupiCava
     public Vino buscarVinoMasDulce( )
     {
    	 // TODO Parte2 PuntoI: Implemente el método según la documentación dada.
+    			if (vinos.isEmpty()) {
+			return null;
+		}
+
+		Vino vinoMasDulce = vinos.get(0);
+		for (Vino vino : vinos) {
+			if (vino.darContenidoAzucar() > vinoMasDulce.darContenidoAzucar()) {
+				vinoMasDulce = vino;
+			}
+		}
+		return vinoMasDulce;
     }
 
     /**
@@ -220,6 +239,17 @@ public class CupiCava
     public Vino buscarVinoMasSeco( )
     {
    	 // TODO Parte2 PuntoJ: Implemente el método según la documentación dada.
+    			if (vinos.isEmpty()) {
+			return null;
+		}
+
+		Vino vinoMasSeco = vinos.get(0);
+		for (Vino vino : vinos) {
+			if (vino.darContenidoAzucar() < vinoMasSeco.darContenidoAzucar()) {
+				vinoMasSeco = vino;
+			}
+		}
+		return vinoMasSeco;
    }
 
     /**
@@ -232,6 +262,15 @@ public class CupiCava
     public ArrayList<Vino> buscarVinosDeTipo( String pTipo )
     {
    	 // TODO Parte2 PuntoK: Implemente el método según la documentación dada.
+    			ArrayList<Vino> vinosDeTipo = new ArrayList<Vino>( );
+		
+		for (Vino vino : vinos) {
+			if (vino.darTipo().equalsIgnoreCase(pTipo)) {
+				vinosDeTipo.add(vino);
+			}
+		}
+		
+		return vinosDeTipo;
    }
 
     // -----------------------------------------------------------------
