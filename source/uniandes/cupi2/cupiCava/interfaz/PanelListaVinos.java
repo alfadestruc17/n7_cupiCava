@@ -89,15 +89,13 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
         setBorder( new CompoundBorder( new EmptyBorder( 0, 5, 0, 5 ), new TitledBorder( "Lista de vinos" ) ) );
         setPreferredSize( new Dimension( 250, 0 ) );
 
-        // TODO Parte3 PuntoB: Inicializar la lista de vinos y agregarle un ListSelectionListener
+        // Initialize list and add listener
         listaVinos = new JList<>( );
         listaVinos.setSelectionMode( ListSelectionModel.SINGLE_SELECTION );
         listaVinos.addListSelectionListener( this );
         
-        
-
-     // TODO Parte3 PuntoC: Inicializar el scroll.
-        listaVinos = new JList<>( );
+        // Initialize scroll with the list
+        scroll = new JScrollPane( listaVinos );
         scroll.setHorizontalScrollBarPolicy( JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
         scroll.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
         scroll.setBorder( new CompoundBorder( new EmptyBorder( 3, 3, 3, 3 ), new LineBorder( Color.BLACK, 1 ) ) );
@@ -118,12 +116,15 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
      * Actualiza la lista de vinos con la lista recibida por parámetro.
      * @param pListaVinos Lista de los vinos. pListaVinos != null.
      */
-    public void refrescarLista( ArrayList pListaVinos )
+    public void refrescarLista( ArrayList<String> pListaVinos )
     {
-        listaVinos.setListData( pListaVinos.toArray( ) );
-        if( !pListaVinos.isEmpty( ) )
+        if( pListaVinos != null )
         {
-            listaVinos.setSelectedIndex( 0 );
+            listaVinos.setListData( pListaVinos.toArray( new String[0] ) );
+            if( !pListaVinos.isEmpty( ) )
+            {
+                listaVinos.setSelectedIndex( 0 );
+            }
         }
     }
 
@@ -134,7 +135,7 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
     public void seleccionar( String pNombreVino )
     {
         int indice = -1;
-        ListModel model = listaVinos.getModel( );
+        ListModel<String> model = listaVinos.getModel( );
         for( int i = 0; i < model.getSize( ); i++ )
         {
             String vinoActual = ( String )model.getElementAt( i );
