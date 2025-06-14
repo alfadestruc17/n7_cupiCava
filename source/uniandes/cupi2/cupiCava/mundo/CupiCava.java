@@ -277,7 +277,7 @@ public class CupiCava
     public Vino buscarVinoMasDulce( )
     {
    	 // TODO Parte2 PuntoI: Implemente el método según la documentación dada.
-    			if (vinos.isEmpty()) {
+    	if (vinos.isEmpty()) {
 			return null;
 		}
 
@@ -299,7 +299,7 @@ public class CupiCava
     public Vino buscarVinoMasSeco( )
     {
    	 // TODO Parte2 PuntoJ: Implemente el método según la documentación dada.
-    			if (vinos.isEmpty()) {
+    	if (vinos.isEmpty()) {
 			return null;
 		}
 
@@ -322,7 +322,7 @@ public class CupiCava
     public ArrayList<Vino> buscarVinosDeTipo( String pTipo )
     {
    	 // TODO Parte2 PuntoK: Implemente el método según la documentación dada.
-    			ArrayList<Vino> vinosDeTipo = new ArrayList<Vino>( );
+    	ArrayList<Vino> vinosDeTipo = new ArrayList<Vino>( );
 		
 		for (Vino vino : vinos) {
 			if (vino.darTipo().equalsIgnoreCase(pTipo)) {
