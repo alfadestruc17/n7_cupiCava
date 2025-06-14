@@ -136,37 +136,68 @@ public class CupiCava
     public void ordenarVinosPorAnhoElaboracion( )
     {
    	 // TODO Parte2 PuntoM: Implemente el método según la documentación dada.
+    	for (int i = 0; i < vinos.size() - 1; i++) {
+    		int max = i;
+    		for (int j = i + 1; j < vinos.size(); j++) {
+    			if (vinos.get(j).darAnhoElaboracion() > vinos.get(max).darAnhoElaboracion()) {
+    				max = j;
+    			}
+    	}
+    	Vino temp = vinos.get(max);
+    	vinos.set(max, vinos.get(i));
+    	vinos.set(i, temp);
+			}
+    	}
+    
+    public void ordenarVinosPorPresentacion() {
+        for (int i = 1; i < vinos.size(); i++) {
+            Vino actual = vinos.get(i);
+            int j = i - 1;
+            while (j >= 0 && vinos.get(j).compararPorPresentacion(actual) > 0) {
+                vinos.set(j + 1, vinos.get(j));
+                j--;
+            }
+            vinos.set(j + 1, actual);
+        }
     }
-    
-    /**
-     * 
-     */
-    public void ordenarVinosPorPresentacion( )
-	{
-   	 // TODO Parte2 PuntoO: Implemente el método según la documentación dada.
-	}
-    
-    /**
-     * 
-     */
-    public void ordenarVinosPorContenidoAzucar()
-	{
-   	 // TODO Parte2 PuntoP: Implemente el método según la documentación dada.
-	}
-    
-    /**
-     * 
-     */
+
+    public void ordenarVinosPorContenidoAzucar() {
+        for (int i = 0; i < vinos.size() - 1; i++) {
+            for (int j = 0; j < vinos.size() - i - 1; j++) {
+                if (vinos.get(j).compararPorContenidoAzucar(vinos.get(j + 1)) > 0) {
+                    Vino temp = vinos.get(j);
+                    vinos.set(j, vinos.get(j + 1));
+                    vinos.set(j + 1, temp);
+                }
+            }
+        }
+    }
+
     public void ordenarVinosPorTipo() {
-   	 // TODO Parte2 PuntoQ: Implemente el método según la documentación dada.
+        for (int i = 0; i < vinos.size() - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < vinos.size(); j++) {
+                if (vinos.get(j).compararPorTipo(vinos.get(min)) < 0) {
+                    min = j;
+                }
+            }
+            Vino temp = vinos.get(i);
+            vinos.set(i, vinos.get(min));
+            vinos.set(min, temp);
+        }
     }
-    
-    /**
-     * 
-     */
+
     public void ordenarVinosPorColor() {
-   	 // TODO Parte2 PuntoR: Implemente el método según la documentación dada.
-	}
+        for (int i = 1; i < vinos.size(); i++) {
+            Vino actual = vinos.get(i);
+            int j = i - 1;
+            while (j >= 0 && vinos.get(j).compararPorColor(actual) > 0) {
+                vinos.set(j + 1, vinos.get(j));
+                j--;
+            }
+            vinos.set(j + 1, actual);
+        }
+    }
     
     /**
      * Ordena ascendentemente la lista de vinos por lugar de origen usando el algoritmo de inserción. <br>
@@ -176,6 +207,15 @@ public class CupiCava
     public void ordenarVinosPorLugarOrigen( )
     {
    	 // TODO Parte2 PuntoN: Implemente el método según la documentación dada.
+    for (int i = 1; i < vinos.size(); i++) {
+    	Vino vinoActual = vinos.get(i);
+    	int j = i - 1;
+    	while (j >= 0 && vinos.get(j).darLugarOrigen().compareToIgnoreCase(vinoActual.darLugarOrigen()) > 0) {
+    		vinos.set(j + 1, vinos.get(j));
+    		j--;
+			}
+    		vinos.set(j + 1, vinoActual);
+    	}
     }
 
     /**
