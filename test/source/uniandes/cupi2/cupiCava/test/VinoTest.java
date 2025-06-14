@@ -202,7 +202,9 @@ public class VinoTest
      */
     public void testCompararPorColor( )
     {
-   	 // TODO Parte2 PuntoO: Implemente el método para que cumpla los casos de prueba
+    	assertEquals( "La comparación debería tener como resultado 0 porque los colores son iguales.", 0, vino1.compararPorColor( vino4 ) );
+		assertEquals( "La comparación debería tener como resultado -1 porque el vino1 es menor a vino2.", -1, vino1.compararPorColor( vino2 ) );
+		assertEquals( "La comparación debería tener como resultado 1 porque el vino3 es mayor a vino1.", 1, vino3.compararPorColor( vino1 ) );
    }
 
     /**
@@ -216,6 +218,8 @@ public class VinoTest
      */
     public void testCompararPorLugarOrigen( )
     {
-   	 // TODO Parte2 PuntoP: Implemente el método para que cumpla los casos de prueba
+   	 	assertEquals( "La comparación debería tener como resultado 0 porque los lugares de origen son iguales.", 0, vino1.compararPorLugarOrigen( vino4 ) );
+		assertEquals( "La comparación debería tener como resultado -1 porque el vino1 es menor a vino2.", -1, vino1.compararPorLugarOrigen( vino2 ) );
+		assertEquals( "La comparación debería tener como resultado 1 porque el vino3 es mayor a vino1.", 1, vino3.compararPorLugarOrigen( vino1 ) );
    }
 }

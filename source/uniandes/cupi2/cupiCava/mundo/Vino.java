@@ -13,7 +13,7 @@ package uniandes.cupi2.cupiCava.mundo;
 /**
  * Clase que representa un vino almacenado en la Cupi-Cava.<br>
  * <b>inv: </b> <br>
- * TODO Parte1 PuntoA: Declare la invariante de la clase.
+ * 
  */
 public class Vino
 {
@@ -237,7 +237,6 @@ public class Vino
      */
     public int compararPorNombre( Vino pVino )
     {
-    	 // TODO Parte2 PuntoA: Implemente el método según la documentación dada.
     	return nombre.compareTo(pVino.darNombre());
     }
 
@@ -250,7 +249,6 @@ public class Vino
      */
     public int compararPorPresentacion( Vino pVino )
     {
-   	 // TODO Parte2 PuntoB: Implemente el método según la documentación dada.
     	return presentacion.compareTo(pVino.darPresentacion());
    }
 
@@ -263,7 +261,6 @@ public class Vino
      */
     public int compararPorAnhoElaboracion( Vino pVino )
     {
-   	 // TODO Parte2 PuntoC: Implemente el método según la documentación dada.
     	if (anhoElaboracion < pVino.darAnhoElaboracion())
 			return 1;
 		else if (anhoElaboracion > pVino.darAnhoElaboracion())
@@ -281,7 +278,6 @@ public class Vino
      */
     public int compararPorContenidoAzucar( Vino pVino )
     {
-   	 // TODO Parte2 PuntoD: Implemente el método según la documentación dada.
     	if (contenidoAzucar < pVino.darContenidoAzucar())
     		return 1;
     	else if (contenidoAzucar > pVino.darContenidoAzucar())
@@ -299,7 +295,6 @@ public class Vino
      */
     public int compararPorTipo( Vino pVino )
     {
-   	 // TODO Parte2 PuntoE: Implemente el método según la documentación dada.
     	return tipo.compareTo(pVino.darTipo());
     }
 
@@ -312,7 +307,6 @@ public class Vino
      */
     public int compararPorColor( Vino pVino )
     {
-   	 // TODO Parte2 PuntoF: Implemente el método según la documentación dada.
     	return color.compareTo(pVino.darColor());
     }
     
@@ -325,7 +319,6 @@ public class Vino
      */
     public int compararPorLugarOrigen( Vino pVino )
     {
-   	 // TODO Parte2 PuntoG: Implemente el método según la documentación dada.
     	return lugarOrigen.compareTo(pVino.darLugarOrigen());
     }
 
@@ -352,5 +345,4 @@ public class Vino
 		return resultado;
 	}
 
-    // TODO Parte1 PuntoB: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
 }

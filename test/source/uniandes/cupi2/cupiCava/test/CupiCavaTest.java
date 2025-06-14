@@ -206,9 +206,16 @@ public class CupiCavaTest
     public void testOrdenarVinosPorNombre( )
     {
         setupEscenario3( );
-
+        cupiCava.ordenarVinosPorNombre( );
+        ArrayList<Vino> vinos = cupiCava.darVinos( );
+        assertEquals( "Los vinos no están ordenados por nombre.", "Alamos Chardonnay", vinos.get( 0 ).darNombre( ) );
+        assertEquals( "Los vinos no están ordenados por nombre.", "Camino Real", vinos.get( 1 ).darNombre( ) );
+        assertEquals( "Los vinos no están ordenados por nombre.", "Castillo de Javier", vinos.get( 2 ).darNombre( ) );
+        assertEquals( "Los vinos no están ordenados por nombre.", "Conde de Rioja", vinos.get( 3 ).darNombre( ) );
+        assertEquals( "Los vinos no están ordenados por nombre.", "Marqués de Griñon Reserva", vinos.get( 4 ).darNombre( ) );
+        assertEquals( "Los vinos no están ordenados por nombre.", "Mont-Ferrant Brut Nature Vintage", vinos.get( 5 ).darNombre( ) );
+        assertEquals( "Los vinos no están ordenados por nombre.", "Tavel Aoc", vinos.get( 6 ).darNombre( ) );
         
-       	 // TODO Parte2 PuntoQ: Implemente el método para que cumpla los casos de prueba
        
     }
 
@@ -225,8 +232,7 @@ public class CupiCavaTest
     public void testOrdenarPorAnhoElaboracion( )
     {
         setupEscenario3( );
-
-        // TODO Parte2 PuntoR: Implemente el método para que cumpla los casos de prueba
+        
     }
 
     /**
@@ -242,8 +248,6 @@ public class CupiCavaTest
     public void testOrdenarVinosPorLugarOrigen( )
     {
         setupEscenario3( );
-
-        // TODO Parte2 PuntoS: Implemente el método para que cumpla los casos de prueba
     }
 
     /**
