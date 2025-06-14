@@ -77,52 +77,7 @@ public class CupiCava
 
         return buscado;
     }
-
-    /**
-     * Busca un vino utilizando una búsqueda binaria. <br>
-     * <b>pre: </b> La lista de vinos está inicializada y se encuentra ordenada por nombre.
-     * @param pNombre Nombre del vino que se va a buscar. pNombre != null && pNombre != "".
-     * @return Vino con el nombre dado, null en caso de no encontrarlo.
-     */
-    public Vino buscarBinarioPorNombre( String pNombre )
-    {
-   	 // TODO Parte2 PuntoH: Implemente el método según la documentación dada.
-    }
-
-    /**
-     * Busca el vino más dulce (con mayor contenido en azúcar) de la cava. <br>
-     * <b>pre:</b> La lista de vinos está inicializada.
-     * @return Vino más dulce de la cava. Si la cava no tiene vinos se retorna null. Si existen varios vinos con el contenido en azúcar más alto, se retorna el primer vino
-     *         encontrado.
-     */
-    public Vino buscarVinoMasDulce( )
-    {
-   	 // TODO Parte2 PuntoI: Implemente el método según la documentación dada.
-    }
-
-    /**
-     * Busca el vino más seco (con menor contenido en azúcar) de la cava. <br>
-     * <b>pre:</b> La lista de vinos está inicializada.
-     * @return Vino más seco de la cava. Si la cava no tiene vinos se retorna null. Si existen varios vinos con el contenido en azúcar más bajo, se retorna el primer vino
-     *         encontrado.
-     */
-    public Vino buscarVinoMasSeco( )
-    {
-   	 // TODO Parte2 PuntoJ: Implemente el método según la documentación dada.
-   }
-
-    /**
-     * Busca los vinos del tipo dado por parámetro. <br>
-     * <b>pre:</b> La lista de vinos está inicializada.
-     * @param pTipo Tipo de vino de acuerdo a su contenido en azúcar.pTipo != null && pTipo != "" && (pTipo == SECO || pTipo == ABOCADO || pTipo == SEMI_SECO || pTipo ==
-     *        SEMI_DULCE || pTipo == DULCE).
-     * @return Lista de vinos del tipo dado.
-     */
-    public ArrayList<Vino> buscarVinosDeTipo( String pTipo )
-    {
-   	 // TODO Parte2 PuntoK: Implemente el método según la documentación dada.
-   }
-
+    
     /**
      * Agrega un nuevo vino a la cava si no existe actualmente un vino en la cava con el mismo nombre.<br>
      * <b>pre:</b> La lista de vinos está inicializada.<br>
@@ -152,7 +107,7 @@ public class CupiCava
 
         return agregada;
     }
-
+    
     /**
      * Ordena ascendentemente la lista de vinos por nombre usando el algoritmo de burbuja. <br>
      * <b>pre:</b> La lista de vinos está inicializada. <br>
@@ -161,7 +116,17 @@ public class CupiCava
     public void ordenarVinosPorNombre( )
     {
    	 // TODO Parte2 PuntoL: Implemente el método según la documentación dada.
-   }
+    	for (int i = 0; i < vinos.size() - 1; i++) {
+			for (int j = 0; j < vinos.size() - 1 - i; j++) {
+				if (vinos.get(j).darNombre().compareToIgnoreCase(vinos.get(j + 1).darNombre()) > 0) {
+					// Intercambiar los vinos
+					Vino temp = vinos.get(j);
+					vinos.set(j, vinos.get(j + 1));
+					vinos.set(j + 1, temp);
+				}
+			}
+		}
+    }
 
     /**
      * Ordena descendentemente la lista de vinos por año de elaboración usando el algoritmo de selección. <br>
@@ -171,8 +136,89 @@ public class CupiCava
     public void ordenarVinosPorAnhoElaboracion( )
     {
    	 // TODO Parte2 PuntoM: Implemente el método según la documentación dada.
-   }
+    	for (int i = 0; i < vinos.size() - 1; i++) {
+    		int max = i;
+    		for (int j = i + 1; j < vinos.size(); j++) {
+    			if (vinos.get(j).darAnhoElaboracion() > vinos.get(max).darAnhoElaboracion()) {
+    				max = j;
+    			}
+    	}
+    	Vino temp = vinos.get(max);
+    	vinos.set(max, vinos.get(i));
+    	vinos.set(i, temp);
+			}
+    	}
+    
+    /**
+     * Ordena ascendentemente la lista de vinos por presentación usando el algoritmo de inserción. <br>
+     * <b>pre:</b> La lista de vinos está inicializada. <br>
+     * 
+     */
+    public void ordenarVinosPorPresentacion() {
+        for (int i = 1; i < vinos.size(); i++) {
+            Vino actual = vinos.get(i);
+            int j = i - 1;
+            while (j >= 0 && vinos.get(j).compararPorPresentacion(actual) > 0) {
+                vinos.set(j + 1, vinos.get(j));
+                j--;
+            }
+            vinos.set(j + 1, actual);
+        }
+    }
 
+    /**
+	 * Ordena ascendentemente la lista de vinos por contenido en azúcar usando el algoritmo de burbuja. <br>
+	 * <b>pre:</b> La lista de vinos está inicializada. <br>
+	 * <b>post:</b> La lista de vinos está ordenada por contenido en azúcar (orden ascendente).
+	 */
+    public void ordenarVinosPorContenidoAzucar() {
+        for (int i = 0; i < vinos.size() - 1; i++) {
+            for (int j = 0; j < vinos.size() - i - 1; j++) {
+                if (vinos.get(j).compararPorContenidoAzucar(vinos.get(j + 1)) > 0) {
+                    Vino temp = vinos.get(j);
+                    vinos.set(j, vinos.get(j + 1));
+                    vinos.set(j + 1, temp);
+                }
+            }
+        }
+    }
+    
+    /**
+	 * Ordena ascendentemente la lista de vinos por tipo usando el algoritmo de selección. <br>
+	 * <b>pre:</b> La lista de vinos está inicializada. <br>
+	 * <b>post:</b> La lista de vinos está ordenada por tipo (orden ascendente).
+	 */
+    public void ordenarVinosPorTipo() {
+        for (int i = 0; i < vinos.size() - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < vinos.size(); j++) {
+                if (vinos.get(j).compararPorTipo(vinos.get(min)) < 0) {
+                    min = j;
+                }
+            }
+            Vino temp = vinos.get(i);
+            vinos.set(i, vinos.get(min));
+            vinos.set(min, temp);
+        }
+    }
+    
+    /**
+	 * Ordena ascendentemente la lista de vinos por color usando el algoritmo de inserción. <br>
+	 * <b>pre:</b> La lista de vinos está inicializada. <br>
+	 * <b>post:</b> La lista de vinos está ordenada por color (orden ascendente).
+	 */
+    public void ordenarVinosPorColor() {
+        for (int i = 1; i < vinos.size(); i++) {
+            Vino actual = vinos.get(i);
+            int j = i - 1;
+            while (j >= 0 && vinos.get(j).compararPorColor(actual) > 0) {
+                vinos.set(j + 1, vinos.get(j));
+                j--;
+            }
+            vinos.set(j + 1, actual);
+        }
+    }
+    
     /**
      * Ordena ascendentemente la lista de vinos por lugar de origen usando el algoritmo de inserción. <br>
      * <b>pre:</b> La lista de vinos está inicializada.<br>
@@ -181,11 +227,156 @@ public class CupiCava
     public void ordenarVinosPorLugarOrigen( )
     {
    	 // TODO Parte2 PuntoN: Implemente el método según la documentación dada.
+    for (int i = 1; i < vinos.size(); i++) {
+    	Vino vinoActual = vinos.get(i);
+    	int j = i - 1;
+    	while (j >= 0 && vinos.get(j).darLugarOrigen().compareToIgnoreCase(vinoActual.darLugarOrigen()) > 0) {
+    		vinos.set(j + 1, vinos.get(j));
+    		j--;
+			}
+    		vinos.set(j + 1, vinoActual);
+    	}
+    }
+
+    /**
+     * Busca un vino utilizando una búsqueda binaria. <br>
+     * <b>pre: </b> La lista de vinos está inicializada y se encuentra ordenada por nombre.
+     * @param pNombre Nombre del vino que se va a buscar. pNombre != null && pNombre != "".
+     * @return Vino con el nombre dado, null en caso de no encontrarlo.
+     */
+    public Vino buscarBinarioPorNombre( String pNombre )
+    {
+   	 // TODO Parte2 PuntoH: Implemente el método según la documentación dada.
+    			int inicio = 0;
+		int fin = vinos.size() - 1;
+		Vino encontrado = null;
+
+		while (inicio <= fin) {
+			int medio = (inicio + fin) / 2;
+			Vino vinoActual = vinos.get(medio);
+
+			if (vinoActual.darNombre().equalsIgnoreCase(pNombre)) {
+				encontrado = vinoActual;
+				break;
+			} else if (vinoActual.darNombre().compareToIgnoreCase(pNombre) < 0) {
+				inicio = medio + 1;
+			} else {
+				fin = medio - 1;
+			}
+		}
+
+		return encontrado;
+    }
+
+    /**
+     * Busca el vino más dulce (con mayor contenido en azúcar) de la cava. <br>
+     * <b>pre:</b> La lista de vinos está inicializada.
+     * @return Vino más dulce de la cava. Si la cava no tiene vinos se retorna null. Si existen varios vinos con el contenido en azúcar más alto, se retorna el primer vino
+     *         encontrado.
+     */
+    public Vino buscarVinoMasDulce( )
+    {
+   	 // TODO Parte2 PuntoI: Implemente el método según la documentación dada.
+    	if (vinos.isEmpty()) {
+			return null;
+		}
+
+		Vino vinoMasDulce = vinos.get(0);
+		for (Vino vino : vinos) {
+			if (vino.darContenidoAzucar() > vinoMasDulce.darContenidoAzucar()) {
+				vinoMasDulce = vino;
+			}
+		}
+		return vinoMasDulce;
+    }
+
+    /**
+     * Busca el vino más seco (con menor contenido en azúcar) de la cava. <br>
+     * <b>pre:</b> La lista de vinos está inicializada.
+     * @return Vino más seco de la cava. Si la cava no tiene vinos se retorna null. Si existen varios vinos con el contenido en azúcar más bajo, se retorna el primer vino
+     *         encontrado.
+     */
+    public Vino buscarVinoMasSeco( )
+    {
+   	 // TODO Parte2 PuntoJ: Implemente el método según la documentación dada.
+    	if (vinos.isEmpty()) {
+			return null;
+		}
+
+		Vino vinoMasSeco = vinos.get(0);
+		for (Vino vino : vinos) {
+			if (vino.darContenidoAzucar() < vinoMasSeco.darContenidoAzucar()) {
+				vinoMasSeco = vino;
+			}
+		}
+		return vinoMasSeco;
+   }
+
+    /**
+     * Busca los vinos del tipo dado por parámetro. <br>
+     * <b>pre:</b> La lista de vinos está inicializada.
+     * @param pTipo Tipo de vino de acuerdo a su contenido en azúcar.pTipo != null && pTipo != "" && (pTipo == SECO || pTipo == ABOCADO || pTipo == SEMI_SECO || pTipo ==
+     *        SEMI_DULCE || pTipo == DULCE).
+     * @return Lista de vinos del tipo dado.
+     */
+    public ArrayList<Vino> buscarVinosDeTipo( String pTipo )
+    {
+   	 // TODO Parte2 PuntoK: Implemente el método según la documentación dada.
+    	ArrayList<Vino> vinosDeTipo = new ArrayList<Vino>( );
+		
+		for (Vino vino : vinos) {
+			if (vino.darTipo().equalsIgnoreCase(pTipo)) {
+				vinosDeTipo.add(vino);
+			}
+		}
+		
+		return vinosDeTipo;
    }
 
     // -----------------------------------------------------------------
     // Invariante
     // -----------------------------------------------------------------
+
+    /**
+     * Verifica la invariante de la clase
+     * @throws RuntimeException si la invariante no se cumple
+     */
+    public void verificarInvariante() {
+        // Verificar que la lista no sea nula
+        if (vinos == null) {
+            throw new RuntimeException("La lista de vinos no puede ser nula");
+        }
+        
+        // Verificar que no haya elementos nulos
+        for (Vino vino : vinos) {
+            if (vino == null) {
+                throw new RuntimeException("No pueden existir vinos nulos");
+            }
+            // Verificar invariante de cada vino
+            if (vino.verficarInvariante() == -1) {
+                throw new RuntimeException("La invariante del vino no se cumple");
+            }
+        }
+    }
+    
+    /**
+     * 
+     */
+    public boolean buscarVinosConNombreRepetido()
+	{
+   	 // TODO Parte2 PuntoG: Implemente el método según la documentación dada.
+   	 // Retorna true si existe un vino con el nombre dado, false de lo contrario.
+    	for (int i = 0; i < vinos.size(); i++) {
+            for (int j = i + 1; j < vinos.size(); j++) {
+                if (vinos.get(i).darNombre().equals(vinos.get(j).darNombre())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+	}
+    
+    
 
     // TODO Parte1 PuntoD: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
 
